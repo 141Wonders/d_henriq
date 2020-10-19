@@ -15,44 +15,72 @@ Derek Henriquez
 
 <h1> Work Gallery </h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg">
-       <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre"> 
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-    <div class="col-lg">
-      <img src="https://i.kym-cdn.com/entries/icons/original/000/025/580/Screen_Shot_2018-03-01_at_12.59.37_PM.png" class="img-rounded" width="250" height="150" alt="Cinque Terre">
-    </div>
-  </div>
-</div>
+<dialog id="Mymodal">
+	<label for="text_box">This is the dialog!</label>
+
+	<div id="{video01_name}"></div>
+
+ 	<script src="https://player.vimeo.com/api/player.js"></script>
+  	<script>
+    var options01 = {
+      id: 217854293,
+      width: 800,
+      autoplay: true,
+      byline: false,
+      portrait: false,
+    };
+   
+    var video01Player = new Vimeo.Player('{video01_name}', options01);
+
+    video01Player.setVolume(1);
+
+    video01Player.on('play', function() {
+      console.log('Played the first video');
+    });
+
+  	</script>
+
+    <menu>
+    	<button id="cancel" type="reset">Cancel</button>
+  	</menu>
+</dialog>
+
+  <menu>
+    <button id="dialog_test">Dialog test</button>
+  </menu>
+
+  <script>
+    (function() {
+      var testButton = document.getElementById('dialog_test');
+      var cancelButton = document.getElementById('cancel');
+      var dialog = document.getElementById('Mymodal');
+      dialog.returnValue = 'text_box';
+
+      function openCheck(dialog) {
+        if(dialog.open) {
+          console.log('Dialog open');
+        } else {
+          console.log('Dialog closed');
+        }
+      }
+
+      // Update button opens a modal dialog
+      testButton.addEventListener('click', function() {
+        dialog.showModal();
+        openCheck(dialog);
+      });
+
+      // Form cancel button closes the dialog box
+      cancelButton.addEventListener('click', function() {
+        dialog.close('animalNotChosen');
+        openCheck(dialog);
+      });
+
+    })();
+  </script>
+
+
+
+
 
 {% endblock content %} 
