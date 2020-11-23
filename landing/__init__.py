@@ -11,15 +11,12 @@ client = vimeo.VimeoClient(
 )
 
 # Make the request to the server for the "/me" endpoint.
-about_me = client.get('/me')
+about_me = client.get('/me/albums/7693012/videos')
 
-# Make sure we got back a successful response.
-assert about_me.status_code == 200
+
 
 # Load the body's JSON data.
 print (about_me.json())
-
-
 
 from .views import *
 

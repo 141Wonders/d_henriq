@@ -15,8 +15,7 @@ Derek Henriquez
 
 <h1> Work Gallery </h1>
 
-<dialog id="Mymodal">
-	<label for="text_box">This is the dialog!</label>
+<dialog id='Mymodal'>
 
 	<div id="{video01_name}"></div>
 
@@ -25,8 +24,8 @@ Derek Henriquez
     var options01 = {
       id: 217854293,
       width: 800,
-      autoplay: true,
       byline: false,
+      controls: true,
       portrait: false,
     };
    
@@ -54,7 +53,6 @@ Derek Henriquez
       var testButton = document.getElementById('dialog_test');
       var cancelButton = document.getElementById('cancel');
       var dialog = document.getElementById('Mymodal');
-      dialog.returnValue = 'text_box';
 
       function openCheck(dialog) {
         if(dialog.open) {
